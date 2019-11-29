@@ -1,6 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {authenticateUser} from '../actions/userActions';
+import {authenticateUser} from '../actions';
+import {isUndefiendOrNull} from '../functions';
+import FluxRouter from '../Router';
+import Spinner from '../components/Spinner';
 
 class AuthPage extends React.Component {
   componentDidMount() {
@@ -10,7 +13,12 @@ class AuthPage extends React.Component {
     );
   }
   render() {
-    return null;
+    console.log(this.props);
+    if (isUndefiendOrNull(this.props.user) || this.props.user.token === null)
+      return <Spinner />;
+    else {
+      return <FluxRouter />;
+    }
   }
 }
 

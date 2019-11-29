@@ -8,9 +8,19 @@ export const authenticateUser = (email, password) => async dispatch => {
     password,
     email,
   });
-  if (status == 200) {
+  if (result.status == 200) {
     dispatch({type: types.GET_AUTH_TOKEN, payload: result.data.token});
   } else {
     dispatch({type: types.GET_AUTH_TOKEN_FAILED, payload: 'error'});
   }
+};
+
+export const getMyPortfolioList = token => async dispatch => {
+  const result = await Axios.get(`${BASE_URL}/v1/me/portfolios/`, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  console.log(result);
 };
