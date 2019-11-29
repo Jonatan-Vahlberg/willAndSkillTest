@@ -14,13 +14,3 @@ export const authenticateUser = (email, password) => async dispatch => {
     dispatch({type: types.GET_AUTH_TOKEN_FAILED, payload: 'error'});
   }
 };
-
-export const getMyPortfolioList = token => async dispatch => {
-  const result = await Axios.get(`${BASE_URL}/v1/me/portfolios/`, {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
-
-  console.log(result);
-};
