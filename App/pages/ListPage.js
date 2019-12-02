@@ -33,7 +33,6 @@ class ListPage extends React.Component {
         data={portfolios.list}
         keyExtractor={item => item.alias}
         renderItem={({item}) => {
-          console.log(item);
           return <PortfolioListItem key={item.alias} portfolio={item} />;
         }}
       />

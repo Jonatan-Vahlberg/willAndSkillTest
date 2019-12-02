@@ -1,0 +1,26 @@
+export default [
+  {
+    alias: '1234567890',
+    provider: 'NORDNET',
+    name: 'SPAR_KONTO',
+    kind: 'OTHER',
+    total_value: 20000,
+    market_value: 213542,
+    cash: 356,
+    account_number: '123456689',
+    currency: 'SEK',
+    dateCreated: '1996-11-12T11:00:00+00:00',
+  },
+  {
+    alias: '0865421',
+    provider: 'NORDNET',
+    name: 'Investerings konto',
+    kind: 'ISK',
+    total_value: 20000,
+    market_value: 213542,
+    cash: 356,
+    account_number: '9382447381',
+    currency: 'SEK',
+    dateCreated: '2019-12-02T09:45:51+00:00',
+  },
+];
