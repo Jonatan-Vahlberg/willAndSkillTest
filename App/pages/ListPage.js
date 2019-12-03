@@ -1,10 +1,11 @@
 import React from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
 import {connect} from 'react-redux';
 import {getMyPortfolioList} from '../actions';
 import PortfolioListItem from '../components/PortfolioListItem';
 import Spinner from '../components/Spinner';
 import {isUndefiendOrNull} from '../functions';
+import PageComponent from '../components/PageComponent';
 
 class ListPage extends React.Component {
   componentDidMount() {
@@ -16,12 +17,12 @@ class ListPage extends React.Component {
       this.props.portfolios !== null &&
       !isUndefiendOrNull(this.props.portfolios.list)
     ) {
-      return <View>{this.renderList()}</View>;
+      return <PageComponent>{this.renderList()}</PageComponent>;
     }
     return (
-      <View>
+      <PageComponent style={this.generateStyles().container}>
         <Spinner />
-      </View>
+      </PageComponent>
     );
   }
 
@@ -37,6 +38,15 @@ class ListPage extends React.Component {
         }}
       />
     );
+  };
+
+  generateStyles = () => {
+    return StyleSheet.create({
+      container: {
+        justifyContent: 'center',
+        alignItems: 'center',
+      },
+    });
   };
 }
 

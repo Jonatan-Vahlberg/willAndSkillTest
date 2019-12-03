@@ -5,8 +5,9 @@ import {isUndefiendOrNull, breakoutTime, breakoutDate} from '../functions';
 import {getSelectedPortfolio, deselectPortfolio} from '../actions';
 import Spinner from '../components/Spinner';
 import Position from '../components/Position';
+import PageComponent from '../components/PageComponent';
 
-const {width, height} = Dimensions.get('screen');
+const {width} = Dimensions.get('window');
 
 class DetailPage extends React.Component {
   componentDidMount() {
@@ -41,20 +42,23 @@ class DetailPage extends React.Component {
     const {container} = this.generateStyles();
 
     return (
-      <View style={container}>
-        <Text>Account number: {account_number}</Text>
-        <Text>
-          {provider} {kind}
-        </Text>
-        <Text>
-          Value: {cash} {currency}
-        </Text>
-        <Text>Total value: {total_value}</Text>
-        <Text>Market value: {market_value}</Text>
-        <Text>
-          Portfolio created: {breakoutDate(created_at)}{' '}
-          {breakoutTime(created_at)}
-        </Text>
+      <PageComponent>
+        <View style={container}>
+          <Text>Account number: {account_number}</Text>
+          <Text>
+            {provider} {kind}
+          </Text>
+          <Text>
+            Value: {cash} {currency}
+          </Text>
+          <Text>Total value: {total_value}</Text>
+          <Text>Market value: {market_value}</Text>
+          <Text>
+            Portfolio created: {breakoutDate(created_at)}{' '}
+            {breakoutTime(created_at)}
+          </Text>
+          <Text>Positions</Text>
+        </View>
         {portfolio !== null ? (
           this.renderDetailData()
         ) : (
@@ -62,20 +66,23 @@ class DetailPage extends React.Component {
             <Spinner />
           </View>
         )}
-      </View>
+      </PageComponent>
     );
   }
 
   renderDetailData() {
     const {positions} = this.props.portfolio;
-
+    const {} = this.generateStyles();
     return (
       <React.Fragment>
-        <Text>Positions</Text>
         <ScrollView>
-          {positions.map((position, index) => (
-            <Position key={index} {...position} />
-          ))}
+          {positions.length > 0 ? (
+            positions.map((position, index) => (
+              <Position key={index} {...position} />
+            ))
+          ) : (
+            <Text>No positions in this portfolio</Text>
+          )}
         </ScrollView>
       </React.Fragment>
     );
@@ -85,8 +92,10 @@ class DetailPage extends React.Component {
     return StyleSheet.create({
       container: {
         width,
-        height,
         backgroundColor: '#fff',
+        borderBottomColor: 'rgba(0,0,0,0.5)',
+        borderBottomWidth: 1.8,
+        paddingBottom: 10,
       },
     });
   };

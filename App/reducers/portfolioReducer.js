@@ -2,7 +2,7 @@ import types from '../actions/types';
 import mock_data from '../mock_data';
 
 const initalState = {
-  list: mock_data,
+  list: [],
   selectedPortfolio: null,
 };
 

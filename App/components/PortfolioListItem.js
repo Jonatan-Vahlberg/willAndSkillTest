@@ -1,6 +1,7 @@
 import React from 'react';
 import {TouchableOpacity, View, Text, StyleSheet} from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import Card from './Card';
 
 class PortfolioListItem extends React.Component {
   render() {
@@ -26,7 +27,7 @@ class PortfolioListItem extends React.Component {
             portfolioStub: this.props.portfolio,
           })
         }>
-        <View style={card}>
+        <Card>
           <Text style={nameStyle}>{name}</Text>
           <Text>A/C: {account_number}</Text>
           <Text>
@@ -35,7 +36,7 @@ class PortfolioListItem extends React.Component {
           <Text>
             Value: {cash} {currency}
           </Text>
-        </View>
+        </Card>
       </TouchableOpacity>
     );
   }
