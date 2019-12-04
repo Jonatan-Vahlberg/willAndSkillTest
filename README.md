@@ -26,11 +26,17 @@ A test/code challange project built by Jonatan Vahlberg based on documents speci
 
         Issue 4: Tried to put up a graph did not succed not entirly sure why.
 
-    Now with all that said how would i better my attempt in the future or if this was a task given to me at a company i worked for. For starters i would want to hear some guidelines in terms of design so that development goes faster and looks more like a finished product. I would have to request a large amount of mock data so that testing wether the UI works in all senarios possible. I would test on multiple devices this was not possible as i only have a single android phone and one simulator currently. I would make either a mockup/wireframe or a smallscale protoype develop against. I would look more into making the app offline capable by for example caching the last time the app opened so that you show the user  that data even if they are offline. i might also look more into JWT and how to properly set up a self refreshing token. Lstly i would document what decicons i took for future refrence such as file structure and design guides and so on. As i said before the project was interesting and had school not taken a lot of my time i would have delivered something more "complete".
+    Now with all that said how would i better my attempt in the future or if this was a task given to me at a company i worked for. For starters i would want to hear some guidelines in terms of design so that development goes faster and looks more like a finished product. I would have to request a large amount of mock data so that testing wether the UI works in all senarios possible. I would test on multiple devices this was not possible as i only have a single android phone and one simulator currently. I would make either a mockup/wireframe or a smallscale protoype develop against. I would look more into making the app offline capable by for example caching the last time the app opened so that you show the user  that data even if they are offline. i might also look more into JWT and how to properly set up a self refreshing token. Lstly i would document what decicons i took for future refrence such as file structure and design guides and so on. As i said before the project was interesting and had school
+    not taken a lot of my time i would have delivered something more "complete".
 
-    If any errors come up before/during installmeant i would be happy to help if possible
-    jonatan.ramses.vahlberg@gmail.com
+04/12
+    This will be the product handed in as i have no refrence on how to style the application further i can add to my previous troubles that handling of JWT was both new and complicated and had i redone this project i would of made a autho refreshing token or something like that to minimize the UX problems.
 
-    //Jonatan Vhalberg
+![Will & Skill Code Test Showcase](App/media/showcase_1.gif)
+
+If any errors come up before/during installmeant i would be happy to help if possible
+jonatan.ramses.vahlberg@gmail.com
+
+//Jonatan Vhalberg
 
 

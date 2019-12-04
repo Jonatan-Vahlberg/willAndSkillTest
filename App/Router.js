@@ -11,9 +11,16 @@ class FluxRouter extends React.Component {
           <Scene
             key="list"
             title="List of your portfolios"
+            rightButtonImage={require('./media/refresh.png')}
+            onRight={() => console.log('right init')}
             component={ListPage}
           />
-          <Scene key="detail" component={DetailPage} />
+          <Scene
+            key="detail"
+            component={DetailPage}
+            rightButtonImage={require('./media/refresh.png')}
+            onRight={() => console.log('right init')}
+          />
         </Stack>
       </Router>
     );

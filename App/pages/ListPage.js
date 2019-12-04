@@ -10,6 +10,10 @@ import PageComponent from '../components/PageComponent';
 class ListPage extends React.Component {
   componentDidMount() {
     this.props.getMyPortfolioList(this.props.user.token);
+
+    this.props.navigation.setParams({
+      onRight: () => this.props.getMyPortfolioList(this.props.user.token),
+    });
   }
 
   render() {

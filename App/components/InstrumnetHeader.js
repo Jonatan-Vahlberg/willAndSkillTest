@@ -13,10 +13,10 @@ class InstrumentHeader extends React.Component {
       name,
     } = this.props.instrument;
 
-    const {container} = this.generateStyles();
+    const {container, title} = this.generateStyles();
     return (
       <View style={container}>
-        <Text>Instrument: {name}</Text>
+        <Text style={title}>{name}</Text>
         {!isUndefiendOrNull(company) && <Text>{company.description}</Text>}
         <Text>
           Country and Currency: {country} - {currency}
@@ -32,6 +32,11 @@ class InstrumentHeader extends React.Component {
         borderTopWidth: 0.3,
         borderTopColor: 'rgba(0,0,0,0.6)',
         paddingTop: 5,
+      },
+      title: {
+        fontSize: 16.5,
+        fontWeight: '600',
+        marginBottom: 5,
       },
     });
   };

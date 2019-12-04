@@ -6,6 +6,7 @@ import {getSelectedPortfolio, deselectPortfolio} from '../actions';
 import Spinner from '../components/Spinner';
 import Position from '../components/Position';
 import PageComponent from '../components/PageComponent';
+import {Actions} from 'react-native-router-flux';
 
 const {width} = Dimensions.get('window');
 
@@ -16,6 +17,9 @@ class DetailPage extends React.Component {
       portfolioStub: {alias},
     } = this.props;
     this.props.getSelectedPortfolio(token, alias);
+    this.props.navigation.setParams({
+      onRight: () => this.props.getSelectedPortfolio(token, alias),
+    });
   }
 
   componentWillUnmount() {
@@ -39,25 +43,29 @@ class DetailPage extends React.Component {
       created_at,
     } = selectedPortfolio;
 
-    const {container} = this.generateStyles();
+    const {container, bigText} = this.generateStyles();
 
     return (
       <PageComponent>
         <View style={container}>
-          <Text>Account number: {account_number}</Text>
-          <Text>
+          <Text style={bigText}>Account number: {account_number}</Text>
+          <Text style={bigText}>
             {provider} {kind}
           </Text>
-          <Text>
+          <Text style={bigText}>
             Value: {cash} {currency}
           </Text>
-          <Text>Total value: {total_value}</Text>
-          <Text>Market value: {market_value}</Text>
-          <Text>
+          <Text style={bigText}>
+            Total value: {total_value} {currency}
+          </Text>
+          <Text style={bigText}>
+            Market value: {market_value} {currency}
+          </Text>
+          <Text style={bigText}>
             Portfolio created: {breakoutDate(created_at)}{' '}
             {breakoutTime(created_at)}
           </Text>
-          <Text>Positions</Text>
+          <Text style={bigText}>Positions</Text>
         </View>
         {portfolio !== null ? (
           this.renderDetailData()
@@ -72,7 +80,7 @@ class DetailPage extends React.Component {
 
   renderDetailData() {
     const {positions} = this.props.portfolio;
-    const {} = this.generateStyles();
+    const {noPositionsContainer, noPositionsText} = this.generateStyles();
     return (
       <React.Fragment>
         <ScrollView>
@@ -81,7 +89,11 @@ class DetailPage extends React.Component {
               <Position key={index} {...position} />
             ))
           ) : (
-            <Text>No positions in this portfolio</Text>
+            <View style={noPositionsContainer}>
+              <Text style={noPositionsText}>
+                No positions in this portfolio
+              </Text>
+            </View>
           )}
         </ScrollView>
       </React.Fragment>
@@ -95,7 +107,21 @@ class DetailPage extends React.Component {
         backgroundColor: '#fff',
         borderBottomColor: 'rgba(0,0,0,0.5)',
         borderBottomWidth: 1.8,
-        paddingBottom: 10,
+        paddingHorizontal: 10,
+        paddingVertical: 20,
+      },
+      noPositionsContainer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        height: 150,
+      },
+      noPositionsText: {
+        fontSize: 18,
+        color: '#820000',
+      },
+      bigText: {
+        fontSize: 16.5,
+        fontWeight: '600',
       },
     });
   };

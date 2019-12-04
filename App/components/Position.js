@@ -38,6 +38,9 @@ class Position extends React.Component {
         marginHorizontal: 10,
         marginVertical: 5,
       },
+      subContainer: {
+        backgroundColor: '#141414',
+      },
     });
   };
 }

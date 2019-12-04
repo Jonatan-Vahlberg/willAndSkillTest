@@ -18,18 +18,23 @@ class StockInstrumentDetail extends React.Component {
 
     return (
       <View>
-        <Text>
-          Price Close vs Open: {price_close} / {price_open}
-        </Text>
-        <Text>
-          Price Low vs High: {price_low} / {price_high}
-        </Text>
+        {price_open && price_close && (
+          <Text>
+            Price Close vs Open: {price_close} / {price_open}
+          </Text>
+        )}
+        {price_low && price_high && (
+          <Text>
+            Price Low vs High: {price_low} / {price_high}
+          </Text>
+        )}
+
         {week_52_high && week_52_low && (
           <Text>
             End of year Low vs High: {week_52_low} / {week_52_high}
           </Text>
         )}
-        <Text>Price Today: {price_today}</Text>
+        {price_today && <Text>Price Today: {price_today}</Text>}
         {this.renderYeilds(this.props.instrument)}
       </View>
     );
