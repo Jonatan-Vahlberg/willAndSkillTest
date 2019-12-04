@@ -32,7 +32,7 @@ A test/code challange project built by Jonatan Vahlberg based on documents speci
 04/12
     This will be the product handed in as i have no refrence on how to style the application further i can add to my previous troubles that handling of JWT was both new and complicated and had i redone this project i would of made a autho refreshing token or something like that to minimize the UX problems.
 
-![Will & Skill Code Test Showcase](App/media/showcase_1.gif =300x589)
+![Will & Skill Code Test Showcase](App/media/showcase_1.gif)
 
 If any errors come up before/during installmeant i would be happy to help if possible
 jonatan.ramses.vahlberg@gmail.com
